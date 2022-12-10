@@ -3,19 +3,23 @@ package main
 import (
 	"log"
 
+	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 )
 
 type Main struct {
-	index     int
-	questions []string
-	answers   []string
-	width     int
-	height    int
+	index       int
+	questions   []string
+	answers     []string
+	width       int
+	height      int
+	answerField textinput.Model
 }
 
 func New(questions []string) *Main {
-	return &Main{questions: questions}
+	answerField := textinput.New()
+	return &Main{questions: questions, answerField: answerField}
 }
 
 func (m Main) Init() tea.Cmd {
@@ -40,7 +44,8 @@ func (m Main) View() string {
 	if m.width == 0 {
 		return "loading..."
 	}
-	return "got width"
+	// stack some strings together in the center of the window
+	return lipgloss.JoinVertical(lipgloss.Center, m.questions[m.index], m.answerField.View())
 }
 
 func main() {
