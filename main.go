@@ -34,6 +34,7 @@ func New(questions []string) *Main {
 	styles := DefaultStyles()
 	answerField := textinput.New()
 	answerField.Placeholder = "Your answer here"
+	answerField.Focus()
 	return &Main{styles: styles, questions: questions, answerField: answerField}
 }
 
@@ -42,6 +43,7 @@ func (m Main) Init() tea.Cmd {
 }
 
 func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	var cmd tea.Cmd
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		m.width = msg.Width
@@ -50,9 +52,14 @@ func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "ctrl+c", "q":
 			return m, tea.Quit
+		case "enter":
+			m.index++
+			m.answerField.SetValue("done!")
+			return m, nil
 		}
 	}
-	return m, nil
+	m.answerField, cmd = m.answerField.Update(msg)
+	return m, cmd
 }
 
 func (m Main) View() string {
