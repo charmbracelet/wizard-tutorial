@@ -24,7 +24,6 @@ type Main struct {
 	styles      *Styles
 	index       int
 	questions   []string
-	answers     []string
 	width       int
 	height      int
 	answerField textinput.Model
