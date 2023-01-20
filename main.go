@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -48,19 +50,11 @@ func (q *Question) getAnswer() string {
 	return q.answer
 }
 
-type shortQuestion struct {
-	Question
-}
-
 func newShortQuestion(q string) Question {
 	question := newQuestion(q)
 	model := NewShortAnswerField()
 	question.input = model
 	return question
-}
-
-type longQuestion struct {
-	Question
 }
 
 func newLongQuestion(q string) Question {
@@ -76,7 +70,7 @@ func New(questions []Question) *Main {
 }
 
 func (m Main) Init() tea.Cmd {
-	return nil
+	return m.questions[m.index].input.Blink
 }
 
 func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -92,8 +86,7 @@ func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		case "enter":
 			m.Next()
-			current.input.SetValue("done!")
-			return m, nil
+			return m, current.input.Blur
 		}
 	}
 	current.input, cmd = current.input.Update(msg)
@@ -131,8 +124,15 @@ func main() {
 	// init styles; optional, just showing as a way to organize styles
 	// start bubble tea and init first model
 	questions := []Question{newShortQuestion("what is your name?"), newShortQuestion("what is your favourite editor?"), newLongQuestion("what's your favourite quote?")}
-	firstQuestion := New(questions)
-	p := tea.NewProgram(*firstQuestion, tea.WithAltScreen())
+	main := New(questions)
+
+	f, err := tea.LogToFile("debug.log", "debug")
+	if err != nil {
+		fmt.Println("fatal:", err)
+		os.Exit(1)
+	}
+	defer f.Close()
+	p := tea.NewProgram(*main, tea.WithAltScreen())
 	if _, err := p.Run(); err != nil {
 		log.Fatal(err)
 	}
