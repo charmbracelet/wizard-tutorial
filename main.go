@@ -34,6 +34,7 @@ type Main struct {
 	questions []Question
 	width     int
 	height    int
+	done      bool
 }
 
 type Question struct {
@@ -44,10 +45,6 @@ type Question struct {
 
 func newQuestion(q string) Question {
 	return Question{question: q}
-}
-
-func (q *Question) getAnswer() string {
-	return q.answer
 }
 
 func newShortQuestion(q string) Question {
@@ -74,7 +71,7 @@ func (m Main) Init() tea.Cmd {
 }
 
 func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	current := m.questions[m.index]
+	current := &m.questions[m.index]
 	var cmd tea.Cmd
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
@@ -85,6 +82,10 @@ func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "ctrl+c", "q":
 			return m, tea.Quit
 		case "enter":
+			if m.index == len(m.questions)-1 {
+				m.done = true
+			}
+			current.answer = current.input.Value()
 			m.Next()
 			return m, current.input.Blur
 		}
@@ -95,6 +96,13 @@ func (m Main) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m Main) View() string {
 	current := m.questions[m.index]
+	if m.done {
+		var output string
+		for _, q := range m.questions {
+			output += fmt.Sprintf("%s: %s\n", q.question, q.answer)
+		}
+		return output
+	}
 	if m.width == 0 {
 		return "loading..."
 	}

@@ -11,6 +11,7 @@ type Input interface {
 	Blur() tea.Msg
 	Focus() tea.Cmd
 	SetValue(string)
+	Value() string
 	Update(tea.Msg) (Input, tea.Cmd)
 	View() string
 }
@@ -63,6 +64,10 @@ func (a *shortAnswerField) Blur() tea.Msg {
 	return a.textinput.Blur
 }
 
+func (a *shortAnswerField) Value() string {
+	return a.textinput.Value()
+}
+
 type longAnswerField struct {
 	textarea textarea.Model
 }
@@ -106,4 +111,8 @@ func (a *longAnswerField) SetValue(s string) {
 
 func (a *longAnswerField) Blur() tea.Msg {
 	return a.textarea.Blur
+}
+
+func (a *longAnswerField) Value() string {
+	return a.textarea.Value()
 }
