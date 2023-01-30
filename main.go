@@ -9,13 +9,6 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-type answerType int
-
-const (
-	short answerType = iota
-	long
-)
-
 type Styles struct {
 	BorderColor lipgloss.Color
 	InputField  lipgloss.Style
