@@ -13,12 +13,7 @@ The commits for this project correspond to the milestones in the video. If
 you're following along in the video and hoping to compare your code to the
 solution, then definitely check out the commit history. 
 
-<iframe
-  src="https://www.youtube.com/embed/Gl31diSVP8M"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen></iframe>
+[VIDEO: Build a Terminal Wizard in Go](https://youtu.be/Gl31diSVP8M)
 
 ## About Bubble Tea
 
