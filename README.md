@@ -1,5 +1,7 @@
 # Companion: Build a Terminal Wizard in Go
 
+<a href="https://youtu.be/Gl31diSVP8M"><img width="1728" alt="A screenshot of Bashbunni coding" src="https://user-images.githubusercontent.com/25087/223545761-2ed289d0-b2f2-4246-a357-0e10430d40b9.jpg"></a>
+
 This is a companion project for [Build a Terminal Wizard in Go][vid], a video
 tutorial for getting started with [Bubble Tea][bubbletea] and
 [Lip Gloss][lipgloss].
@@ -14,7 +16,7 @@ you follow along.
 ## Feedback
 
 Whatcha think? We’d love to hear your thoughts on this project: Feel free to
-drop us a note.
+drop a note in [the comments section of the video][vid] or on:
 
 * [Twitter](https://twitter.com/charmcli)
 * [The Fediverse](https://mastodon.social/@charmcli)
