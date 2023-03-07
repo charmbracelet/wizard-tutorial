@@ -1,6 +1,6 @@
 # Companion: Build a Terminal Wizard in Go
 
-<a href="https://youtu.be/Gl31diSVP8M"><img width="1728" alt="A screenshot of Bashbunni coding" src="https://user-images.githubusercontent.com/25087/223545761-2ed289d0-b2f2-4246-a357-0e10430d40b9.jpg"></a>
+<a href="https://youtu.be/Gl31diSVP8M"><img style="width: 100%" alt="A screenshot of Bashbunni coding" src="https://user-images.githubusercontent.com/25087/223545761-2ed289d0-b2f2-4246-a357-0e10430d40b9.jpg"></a>
 
 This is a companion project for [Build a Terminal Wizard in Go][vid], a video
 tutorial for getting started with [Bubble Tea][bubbletea] and
