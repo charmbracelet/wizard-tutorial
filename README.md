@@ -1,35 +1,20 @@
-# TUI Wizard Tutorial
+# Companion: Build a Terminal Wizard in Go
 
-<p>
-    <img src="https://stuff.charm.sh/bubbletea/bubbletea-github-header-simple.png" width="313" alt="Bubble Tea Title Treatment"><br>
-</p>
+This is a companion project for [Build a Terminal Wizard in Go][vid], a video
+tutorial for getting started with [Bubble Tea][bubbletea] and
+[Lip Gloss][lipgloss].
 
-We built this example for a tutorial video on our [YouTube
-channel](https://charm.sh/yt) to help newcomers get started with [Bubble
-Tea](https://github.com/charmbracelet/bubbletea) and
-[Lipgloss](https://github.com/charmbracelet/lipgloss).
+The commits for this project correspond to the milestones in the video to help
+you follow along.
 
-The commits for this project correspond to the milestones in the video. If
-you're following along in the video and hoping to compare your code to the
-solution, then definitely check out the commit history. 
-
-[VIDEO: Build a Terminal Wizard in Go](https://youtu.be/Gl31diSVP8M)
-
-## About Bubble Tea
-
-The fun, functional and stateful way to build terminal apps. A Go framework
-based on [The Elm Architecture](https://guide.elm-lang.org/architecture/).
-Bubble Tea is well-suited for simple and complex terminal applications, either
-inline, full-window, or a mix of both.
-
-<p>
-    <img src="https://stuff.charm.sh/bubbletea/bubbletea-example.gif" width="100%" alt="Bubble Tea Example">
-</p>
-
+[vid]: https://youtu.be/Gl31diSVP8M
+[bubbletea]: https://github.com/charmbracelet/bubbletea
+[lipgloss]: https://github.com/charmbracelet/lipgloss
 
 ## Feedback
 
-We’d love to hear your thoughts on this project. Feel free to drop us a note!
+Whatcha think? We’d love to hear your thoughts on this project: Feel free to
+drop us a note.
 
 * [Twitter](https://twitter.com/charmcli)
 * [The Fediverse](https://mastodon.social/@charmcli)
